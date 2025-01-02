@@ -1,0 +1,21 @@
+{
+  "name": "ls225",
+  "version": "1.0.0",
+  "description": "notes and exercises for launch school's LS225 course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/eslint-parser": "^7.25.9",
+    "eslint": "^9.15.0",
+    "eslint-cli": "^1.1.1"
+  }
+}
