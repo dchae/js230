@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Mixup Fixer</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <main>
+      <h1><a href="#">My Site!</a></h1>
+      <section id="content">
+        <article>
+          <header>
+            <h1>Welcome to my site!</h1>
+            <h2>I hope you stay a while.</h2>
+          </header>
+          <p>
+            This is my personal slice of the Internet, where I post my ideas and
+            projects that I've completed or am currently working on. All are
+            patent pending.
+          </p>
+        </article>
+        <figure>
+          <img src="images/baby_mop.jpg" alt="The baby mop" />
+          <figcaption>
+            The chin stick &ndash; stay upright while sleeping!
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="images/chin_stick.jpg" alt="The chin stick" />
+          <figcaption>
+            The baby mop &ndash; great for wet and dry mopping!
+          </figcaption>
+        </figure>
+      </section>
+    </main>
+
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <footer>
+      <p>&copy; 2020 me. All projects are patent pending</p>
+    </footer>
+
+    <script>
+      // fix header containing nav
+      let header1 = document.querySelector("header:has(> nav)");
+      let header1h1 = [...document.querySelectorAll("h1")].find((h1) =>
+        /My Site!/.test(h1.textContent.trim())
+      );
+      header1.insertAdjacentElement("afterbegin", header1h1);
+      document.body.insertAdjacentElement("afterbegin", header1);
+
+      // move figures one level down from section#content into section#content > article
+      let contentSection = document.querySelector("#content");
+      let article = document.querySelector("article");
+      let [fig2, fig1] = [...contentSection.querySelectorAll("figure")];
+      article.appendChild(fig1);
+      article.appendChild(fig2);
+
+      // swap figcaptions
+      let [figcap1, figcap2] = [fig1, fig2].map((fig) =>
+        fig.querySelector("figcaption")
+      );
+      fig1.replaceChild(figcap2, figcap1);
+      fig2.appendChild(figcap1);
+    </script>
+  </body>
+</html>

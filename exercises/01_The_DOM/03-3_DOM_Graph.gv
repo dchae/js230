@@ -1,0 +1,82 @@
+digraph DOM_tree {
+  // Graph attributes
+  size="100";
+  rankdir=TB;
+  nodesep=0.2;
+  ranksep=0.8
+  node [shape=box, style=filled, fillcolor=aliceblue]
+
+  // Nodes
+  html [label="html", shape=ellipse, fillcolor=mistyrose];
+  head [label="head", shape=ellipse, fillcolor=mistyrose];
+  head_text [label="\"\\n\""];
+  title [label="title", shape=ellipse, fillcolor=mistyrose];
+  title_text [label="\"Newsletter Signup\""];
+  head_text2 [label="\"\\n\""];
+
+  html_text [label="\"\\n\""];
+
+  body [label="body", shape=ellipse, fillcolor=mistyrose];
+  body_text [label="\"\\n\""];
+  comment [label="#comment", shape=ellipse, fillcolor=powderblue];
+  body_text2 [label="\"\\n\""];
+
+  h1 [label="h1", shape=ellipse, fillcolor=mistyrose];
+  h1_text [label="\"Newsletter Signup\""];
+  body_text3 [label="\"\\n\""];
+  p_intro [label="p", shape=ellipse, fillcolor=mistyrose];
+
+  p_text [label="\"To receive our weekly\n emails, enter your \nemail address below.\""];
+  a [label="a", shape=ellipse, fillcolor=mistyrose];
+  a_text [label="\"Get more info\""];
+  p_text2 [label="\".\\n\""];
+  body_text4 [label="\"\\n\""];
+
+  div [label="div", shape=ellipse, fillcolor=mistyrose];
+  div_text [label="\".\\n\""];
+
+  form [label="form", shape=ellipse, fillcolor=mistyrose];
+  form_text [label="\".\\n\""];
+  label [label="label", shape=ellipse, fillcolor=mistyrose];
+  label_text [label="\".\\n\""];
+  input [label="input", shape=ellipse, fillcolor=mistyrose];
+  label_text2 [label="\".\\n\""];
+  form_text2 [label="\".\\n\""];
+
+  p_controls [label="p", shape=ellipse, fillcolor=mistyrose];
+  p_controls_text [label="\".\\n\""];
+  button_cancel [label="button", shape=ellipse, fillcolor=mistyrose];
+  button_cancel_text [label="\"Cancel\""];
+
+  p_controls_text2 [label="\".\\n\""];
+  button_submit [label="button", shape=ellipse, fillcolor=mistyrose];
+  button_submit_text [label="\"Subscribe\""];
+
+  p_controls_text3 [label="\".\\n\""];
+  form_text3 [label="\".\\n\""];
+  div_text2 [label="\".\\n\""];
+  body_text5 [label="\"\\n\""];
+
+  // Edges
+  html -> {head html_text body};
+  
+  head -> {title head_text head_text2};
+  title -> title_text;
+  
+  body -> {body_text comment body_text2 h1 body_text3 p_intro body_text4 div body_text5};
+  h1 -> h1_text;
+  
+  p_intro -> {p_text a p_text2};
+  a -> a_text;
+  
+  div -> {div_text form div_text2};
+  form -> {form_text label form_text2 p_controls form_text3};
+  
+  label -> {label_text input label_text2};
+  
+  p_controls -> {p_controls_text button_cancel p_controls_text2 button_submit p_controls_text3};
+  button_cancel -> button_cancel_text;
+  button_submit -> button_submit_text;
+
+}
+
