@@ -1,12 +1,17 @@
-/* eslint strict: "off" */
+"use strict";
 
-function clickHandler(event) {
-  if (event.target.tagName === "BUTTON") {
-    let message = document.getElementById("message");
-    message.textContent = `${event.target.textContent} was clicked!`;
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.addEventListener("click", clickHandler);
-});
+new Promise(function (resolve, reject) {
+  setTimeout(() => resolve(1), 1000);
+})
+  .then(function (result) {
+    console.log(result); // 1
+    return result * 2;
+  })
+  .then(function (result) {
+    console.log(result); // 2
+    return result * 2;
+  })
+  .then(function (result) {
+    console.log(result); // 4
+    return result * 2;
+  });
