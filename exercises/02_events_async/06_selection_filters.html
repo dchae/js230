@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      function filterOptions({ options }, show) {
+        for (let option of options)
+          option.hidden = !show.includes(option.value);
+      }
+
+      function ensureSelection({ options, selectedOptions }) {
+        if (!selectedOptions[0].defaultSelected) return;
+
+        for (let option of options) {
+          if (!option.hidden) return (option.selected = true);
+        }
+      }
+
+      function clearForm(form) {
+        form.reset();
+        for (let select of form.getElementsByTagName("select")) {
+          for (let option of select.options) {
+            option.selected = option.defaultSelected;
+            option.hidden = false;
+          }
+        }
+      }
+
+      const filters = {
+        Vertebrate: ["Bear", "Turtle", "Whale", "Salmon", "Ostrich"],
+        "Warm-blooded": ["Bear", "Whale", "Ostrich"],
+        "Cold-blooded": ["Salmon", "Turtle"],
+        Mammal: ["Bear", "Whale"],
+        Bird: ["Ostrich"],
+        Bear: ["Vertebrate", "Warm-blooded", "Mammal"],
+        Turtle: ["Vertebrate", "Cold-blooded"],
+        Whale: ["Vertebrate", "Warm-blooded", "Mammal"],
+        Salmon: ["Vertebrate", "Cold-blooded"],
+        Ostrich: ["Vertebrate", "Warm-blooded", "Bird"],
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let form = document.getElementById("selection-filters");
+        let classifications = document.getElementById("animal-classifications");
+        let animals = document.getElementById("animals");
+        let clearButton = document.getElementById("clear");
+
+        form.addEventListener("change", (event) => {
+          let current = event.target;
+          let other = current === animals ? classifications : animals;
+          filterOptions(other, filters[current.value]);
+          ensureSelection(other);
+          filterOptions(current, filters[other.value]);
+        });
+
+        clearButton.addEventListener("click", (event) => {
+          event.preventDefault();
+          clearForm(event.currentTarget.form);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form id="selection-filters" method="post" action="#">
+      <select id="animal-classifications">
+        <option value="Classifications" selected>Classifications</option>
+        <option value="Vertebrate">Vertebrate</option>
+        <option value="Warm-blooded">Warm-blooded</option>
+        <option value="Cold-blooded">Cold-blooded</option>
+        <option value="Mammal">Mammal</option>
+        <option value="Bird">Bird</option>
+      </select>
+      <select id="animals">
+        <option value="Animals" selected>Animals</option>
+        <option value="Bear">Bear</option>
+        <option value="Turtle">Turtle</option>
+        <option value="Whale">Whale</option>
+        <option value="Salmon">Salmon</option>
+        <option value="Ostrich">Ostrich</option>
+      </select>
+      <button id="clear">Clear</button>
+    </form>
+  </body>
+</html>

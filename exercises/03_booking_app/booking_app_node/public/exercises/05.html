@@ -1,0 +1,35 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <title>Exercise 05 Solution</title>
+    <style>
+      #new-student-form-wrapper {
+        background-color: lightgrey;
+      }
+    </style>
+    <script src="05_booking.js" defer></script>
+  </head>
+  <body>
+    <h2>Schedules</h2>
+    <form id="booking" method="post" action="/api/bookings">
+      <label for="schedule-select">Please select one schedule</label>
+      <select id="schedule-select" name="id"></select>
+      <br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="student_email" />
+      <input type="submit" />
+    </form>
+    <section id="new-student-form-wrapper" hidden>
+      <h2>Please provide new student details</h2>
+      <form id="new-student-form" method="post" action="/api/students">
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" />
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" />
+        <label for="booking-sequence">Booking Sequence: </label>
+        <input type="text" id="booking-sequence" name="booking_sequence" />
+        <input type="submit" />
+      </form>
+    </section>
+  </body>
+</html>

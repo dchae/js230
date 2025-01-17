@@ -1,0 +1,22 @@
+#add-staff-form-input-wrapper {
+  border: double 3px lightgrey;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+form label {
+  font-weight: bold;
+  color: darkred;
+  margin: 2px 0px 5px 70px;
+}
+
+form input[type="submit"] {
+  display: block;
+  margin: 10px 0;
+  padding: 20px 35px;
+  background-color: #db4b5b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}

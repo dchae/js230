@@ -1,0 +1,65 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <style>
+      html * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        margin: 10px;
+        min-width: 280px;
+      }
+
+      #form-list-wrapper {
+        border: none;
+      }
+
+      #form-list-wrapper fieldset {
+        margin: 10px 0;
+        padding: 40px 0;
+        border: solid 2px grey;
+      }
+
+      #form-list-wrapper form {
+        display: grid;
+        grid-template-columns: 100px 150px;
+        gap: 10px;
+      }
+
+      #form-list-wrapper legend {
+        margin: 0 0 0 10px;
+      }
+
+      form label {
+        font-weight: bold;
+        color: darkred;
+        margin: 0;
+        text-align: right;
+        width: 100%;
+      }
+
+      button {
+        display: block;
+        margin: 10px 0;
+        padding: 20px 0px;
+        width: 120px;
+        background-color: #db4b5b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+
+      #add-form-button {
+        background-color: #70b7dd;
+      }
+    </style>
+    <script src="04_adding_schedules.js" defer></script>
+  </head>
+  <body>
+    <button type="button" id="add-form-button">Add more schedules</button>
+    <div id="form-list-wrapper"></div>
+    <button type="button" id="submit-forms-button">Submit</button>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #store {
+        border: solid 1px black;
+        padding: 0 1em;
+        float: left;
+        h1 {
+          font-size: 1.2em;
+        }
+
+        h2 {
+          font-size: 1em;
+        }
+        form {
+          button {
+            margin-bottom: 1em;
+          }
+        }
+      }
+    </style>
+    <script>
+      const HOST_URL = "https://ls-230-web-store-demo.herokuapp.com";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let request = new XMLHttpRequest();
+        request.open("GET", HOST_URL + "/products");
+
+        let divStore = document.getElementById("store");
+        request.addEventListener("load", (event) => {
+          let request = event.target;
+          divStore.innerHTML = request.response;
+        });
+
+        request.send();
+
+        divStore.addEventListener("click", (event) => {
+          let target = event.target;
+
+          if (target.tagName !== "A") return;
+
+          event.preventDefault();
+
+          let request = new XMLHttpRequest();
+          request.open("GET", HOST_URL + target.getAttribute("href"));
+
+          request.addEventListener("load", (event) => {
+            divStore.innerHTML = event.target.response;
+          });
+
+          request.send();
+        });
+
+        divStore.addEventListener("submit", (event) => {
+          event.preventDefault();
+          let form = event.target;
+
+          // let data = [...form.elements]
+          //   .filter((element) => element.type !== "submit")
+          //   .map(({ name, value }) => `${name}=${value}`)
+          //   .join("&");
+          let data = new FormData(form);
+
+          let request = new XMLHttpRequest();
+          request.open(form.method, HOST_URL + form.getAttribute("action"));
+          request.setRequestHeader("Authorization", "token AUTH_TOKEN");
+
+          request.addEventListener("load", (event) => {
+            alert(event.target.response);
+          });
+
+          request.send(data);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Existing Page</h1>
+    <div id="store"></div>
+  </body>
+</html>

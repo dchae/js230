@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bold Element + Custom</title>
+    <script>
+      function makeBold(element) {
+        element.style.fontWeight = "bold";
+        // if (callback && typeof callback === "function") callback(element);
+
+        const event = new CustomEvent("bold");
+        element.dispatchEvent(event);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let sectionElement = document.querySelector("section");
+        sectionElement.addEventListener("bold", () => {
+          sectionElement.classList.add("highlight");
+        });
+
+        makeBold(sectionElement);
+        console.log(sectionElement.classList.contains("highlight"));
+        console.log(sectionElement.style.fontWeight === "bold");
+      });
+    </script>
+  </head>
+  <body>
+    <section>Hello World</section>
+    <p>Greetings!</p>
+  </body>
+</html>

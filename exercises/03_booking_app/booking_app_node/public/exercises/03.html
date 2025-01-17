@@ -1,0 +1,45 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <style>
+      #add-staff-form-input-wrapper {
+        border: double 3px lightgrey;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0;
+      }
+
+      form label {
+        font-weight: bold;
+        color: darkred;
+        margin: 2px 0px 5px 70px;
+      }
+
+      form input[type="submit"] {
+        display: block;
+        margin: 10px 0;
+        padding: 20px 35px;
+        background-color: #db4b5b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+    <script src="02_getting_schedules.js" defer></script>
+  </head>
+  <body>
+    <form id="add-staff-form" method="post" action="/api/staff_members">
+      <div id="add-staff-form-input-wrapper">
+        <label for="email"
+          >Email:
+          <input type="email" name="email" id="email" pattern="\S+@\S+\.\S+" />
+        </label>
+        <label for="name"
+          >Name:
+          <input type="text" name="name" id="name" minlength="2" required />
+        </label>
+      </div>
+      <input type="submit" />
+    </form>
+  </body>
+</html>
