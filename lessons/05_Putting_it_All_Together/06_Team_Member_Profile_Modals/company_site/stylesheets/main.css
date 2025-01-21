@@ -1,0 +1,202 @@
+html {
+  font-family: "Avenir", "Nunito", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  padding: 0;
+}
+
+body {
+  background-image: url("../images/bg_body.gif");
+  min-width: 800px;
+  color: #46494d;
+  text-align: center;
+}
+
+header {
+  margin: 132px auto 42px auto;
+}
+
+nav {
+  margin-top: 113px;
+  padding-right: 14px;
+  font-size: 26px;
+}
+
+nav ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  column-gap: 75px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #c2c2c2;
+  text-transform: uppercase;
+}
+
+nav a.active {
+  font-weight: bold;
+  color: #6db9ff;
+}
+
+#modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.33);
+  z-index: 5;
+  opacity: 1;
+  transition:
+    opacity 300ms,
+    visibility 300ms;
+}
+
+#modal-wrapper.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#modal {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  min-width: 500px;
+  max-width: 800px;
+  background-color: white;
+  z-index: 6;
+  padding: 20px 10px 30px 10px;
+}
+
+#modal figure {
+  position: inline-block;
+  margin-bottom: 20px;
+}
+
+#modal figcaption {
+  font-weight: bold;
+  color: #6db9ff;
+}
+
+#modal img {
+  width: 100px;
+}
+
+#modal a.close {
+  position: absolute;
+  background-image: url("../images/icon_close.png");
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  z-index: 7;
+}
+
+main {
+  padding: 116px 0 0 0;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+section {
+  margin: 0 auto;
+  padding: 0 0 10px 0;
+}
+
+article {
+  margin: 0 0 65px 0;
+}
+
+article.project {
+  margin: 0 0 35px 0;
+}
+
+article p {
+  margin: 0 50px;
+  /* width: 800px; */
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0 0 30px 0;
+}
+
+h2::before,
+h2::after {
+  font-size: 30px;
+  content: "•";
+  padding: 0 25px 0 25px;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3e59b2;
+  margin: 0 0 10px 0;
+}
+
+.project figure {
+  margin: 0 0 45px 0;
+}
+
+ul.team-portraits {
+  display: flex;
+  justify-content: center;
+  column-gap: 60px;
+  margin: 120px 0 200px 0;
+  color: #3e59b2;
+}
+
+.team-portraits li {
+  cursor: pointer;
+}
+
+.team-portraits figcaption {
+  font-size: 24px;
+  margin-top: 24px;
+}
+
+footer {
+  background-color: #e7e7e7;
+  color: #b1b1b1;
+  padding: 88px 0 0 0;
+}
+
+footer p {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+}
+
+ul.socials {
+  padding: 41px 0 78px 0;
+  display: flex;
+  justify-content: center;
+  column-gap: 124px;
+}
+
+.social-icon {
+  background: url("../images/icons_social-media.png") no-repeat;
+  width: 46px;
+  height: 46px;
+  display: inline-block;
+}
+
+.social-1 {
+  background-position: 0 0;
+}
+
+.social-2 {
+  background-position: 0 33.33%;
+}
+
+.social-3 {
+  background-position: 0 66.66%;
+}
+
+.social-4 {
+  background-position: 0 100%;
+}

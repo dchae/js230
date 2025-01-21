@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>HTML Templating</title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <script id="productTemplate" type="text/x-handlebars">
+      <li>
+        <h3>{{name}}</h3>
+        <dl>
+          <dt>Quantity:</dt>
+          <dd>{{quantity}}</dd>
+          <dt>Price:</dt>
+          <dd>
+            ${{price}}
+            {{#if on_sale}}
+            <strong>SALE!</strong>
+            {{/if}}
+          </dd>
+        </dl>
+      </li>
+    </script>
+
+    <script id="productsList" type="text/x-handlebars">
+      {{#each this}}
+        {{> productTemplate}}
+      {{/each}}
+    </script>
+
+    <script src="test.js"></script>
+  </head>
+
+  <body>
+    <main>
+      <ul></ul>
+    </main>
+  </body>
+</html>
