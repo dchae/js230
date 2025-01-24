@@ -9,12 +9,13 @@ function inInput() {
 class Slideshow {
   constructor(photos) {
     this.templates = {};
-    this.initHandlebars();
     this.curIndex = 0;
     this.photos = photos;
+    this.initHandlebars();
     this.slidesContainer = document.querySelector("#slides");
     this.renderSlides();
     this.slides = [...document.querySelectorAll(`#slides figure`)];
+    this.renderCurrent();
     this.initEventHandlers();
   }
 
@@ -56,6 +57,12 @@ class Slideshow {
     const renderedHtml = this.templates["photo_comments"]({ comments });
     const commentsList = document.querySelector("#comments ul");
     commentsList.innerHTML = renderedHtml;
+
+    // update new comment form photo_id field value
+    const photoIdInput = document.querySelector(
+      "#comments input[name='photo_id']",
+    );
+    photoIdInput.value = photo.id;
   }
 
   nextHandler(e, step = 1) {
@@ -86,6 +93,40 @@ class Slideshow {
     }
   }
 
+  async actionHandler(e) {
+    e.preventDefault();
+    const button = e.target;
+    if (button.tagName !== "A") return;
+
+    const path = button.getAttribute("href");
+    const opts = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ photo_id: button.dataset.id }),
+    };
+    const response = await fetch(path, opts);
+
+    const total = (await response.json()).total;
+    this.photo[button.dataset.property] = total;
+    button.textContent = button.textContent.replace(/\d+/, total);
+  }
+
+  async newCommentHandler(e) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const path = form.getAttribute("action");
+    const opts = {
+      method: form.method,
+      body: new URLSearchParams(new FormData(form)),
+    };
+
+    const response = await fetch(path, opts);
+    const commentObj = await response.json();
+    const commentHTML = this.templates["photo_comment"](commentObj);
+    const commentsList = document.querySelector("#comments ul");
+    commentsList.insertAdjacentHTML("beforeend", commentHTML);
+  }
+
   initHandlebars() {
     // register all partials
     document.querySelectorAll("[data-type='partial']").forEach((element) => {
@@ -111,13 +152,21 @@ class Slideshow {
 
     // add event listeners for left and right keys
     document.addEventListener("keydown", this.arrowKeyHandler.bind(this));
+
+    // add event listener for like and favorite button actions
+    const header = document.querySelector("section > header");
+    header.addEventListener("click", this.actionHandler.bind(this));
+
+    // add event listener for new comment form;
+    const commentForm = document.querySelector("#comments form");
+    commentForm.addEventListener("submit", this.newCommentHandler.bind(this));
   }
 }
+
+// TODO: refactor with Slide class?
 
 document.addEventListener("DOMContentLoaded", async () => {
   // get photos json data
   const photos = await fetch("/photos").then((res) => res.json());
   const slideshow = new Slideshow(photos);
-
-  slideshow.renderCurrent();
 });
