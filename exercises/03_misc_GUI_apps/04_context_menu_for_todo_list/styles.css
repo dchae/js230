@@ -1,0 +1,90 @@
+header {
+  color: white;
+}
+
+body {
+  background-color: seagreen;
+}
+
+body.no-scroll {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 300ms ease-out,
+    visibility 300ms;
+}
+
+#context-menu {
+  width: 100px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border: 0.1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.3);
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 3px 5px;
+  background: white;
+  text-align: center;
+}
+
+button:hover {
+  color: white;
+  background: dodgerblue;
+}
+
+#context-menu button {
+  text-align: left;
+  background: none;
+  border-radius: 5px;
+  padding: 3px 0 3px 8px;
+}
+
+#context-menu button:hover {
+  color: white;
+  background: dodgerblue;
+}
+
+dialog {
+  text-align: center;
+
+  border: 0.1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.3);
+}
+
+dialog button {
+  min-width: 10px;
+  margin: 0 10px;
+}
+
+ul {
+  margin-right: 30px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+
+  height: 35px;
+  min-width: 150px;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 3px 20px;
+  margin-bottom: 7px;
+}

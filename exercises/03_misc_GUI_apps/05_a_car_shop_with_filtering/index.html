@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Cars for Sale</title>
+    <meta charset="utf-8" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="app.js"></script>
+    <script id="cars-template" type="text/x-handlebars">
+      {{#each this}}
+        <article data-id="{{@index}}">
+          {{>car}}
+        </article>
+      {{/each}}
+    </script>
+    <script id="car-template" type="text/x-handlebars">
+      <img src="{{image}}" />
+      <h2>{{make}} {{model}}</h2>
+      <ul class="details">
+        <li>Year: {{year}}</li>
+        <li>Price: {{price}}</li>
+      </ul>
+      <button>Buy</button>
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Buy Used Cars</h1>
+      <form id="filter-form">
+        <label for="make-select">Make</label>
+        <select name="make" id="make-select">
+          <option value="" selected>All</option>
+        </select>
+        <label for="model-select">Model</label>
+        <select name="model" id="model-select">
+          <option value="" selected>All</option>
+        </select>
+        <label for="price-select">Price</label>
+        <select name="price" id="price-select">
+          <option value="" selected>All</option>
+        </select>
+        <label for="year-select">Year</label>
+        <select name="year" id="year-select">
+          <option value="" selected>All</option>
+        </select>
+        <input type="submit" value="Filter" />
+      </form>
+    </header>
+    <main>
+      <section class="car-grid"></section>
+    </main>
+  </body>
+</html>

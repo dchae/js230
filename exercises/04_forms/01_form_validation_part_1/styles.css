@@ -1,0 +1,29 @@
+.form-field {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+input {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding-left: 7px;
+  height: 1.2rem;
+}
+
+input.touched:invalid {
+  border-color: red;
+}
+
+#error-message,
+.validation-hint {
+  color: red;
+}

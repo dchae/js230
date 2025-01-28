@@ -1,0 +1,29 @@
+header {
+  color: white;
+}
+
+body {
+  background-color: seagreen;
+}
+
+#confirm-dialog {
+  border-radius: 5px;
+  text-align: center;
+}
+
+ul {
+  margin-right: 30px;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+
+  min-width: 150px;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 3px 20px;
+  margin-bottom: 5px;
+}

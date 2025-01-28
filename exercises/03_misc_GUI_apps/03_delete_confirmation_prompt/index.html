@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Todo Delete</title>
+    <meta charset="utf-8" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="app.js"></script>
+    <script id="todos-template" type="text/x-handlebars">
+      {{#each this}}
+      <li>
+        <p>{{title}}</p>
+        <a class="delete" href="#" data-id="{{id}}">Delete</a>
+      </li>
+      {{/each}}
+    </script>
+  </head>
+
+  <body>
+    <dialog id="confirm-dialog">
+      <form method="dialog">
+        <p>Are you sure you want to delete this todo?</p>
+        <input type="hidden" name="id" value="" />
+        <button id="cancel" type="reset">No</button>
+        <button id="submit" type="submit">Yes</button>
+      </form>
+    </dialog>
+
+    <header><h1>Todos</h1></header>
+    <main>
+      <ul id="todos"></ul>
+    </main>
+  </body>
+</html>

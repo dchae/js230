@@ -1,0 +1,46 @@
+html {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#calculator {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 10px auto;
+}
+
+#screen {
+  text-align: right;
+}
+
+#history {
+  min-height: 1.2rem;
+}
+
+#controls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, minmax(40px, 1fr));
+  gap: 2px;
+}
+
+button {
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 3px 5px;
+  text-align: center;
+}
+
+.action,
+.op {
+  background: rgba(0, 0, 25, 0.18);
+}
+
+button:hover,
+button:active {
+  color: white;
+  background: dodgerblue;
+}

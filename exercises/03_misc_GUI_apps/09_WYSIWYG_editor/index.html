@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Text Editor</title>
+    <meta charset="utf-8" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <script src="app.js"></script>
+  </head>
+
+  <body>
+    <h1>Text Editor</h1>
+    <div class="editor">
+      <div class="controls">
+        <button id="bold" class="material-symbols-outlined">format_bold</button>
+        <button id="italic" class="material-symbols-outlined">
+          format_italic
+        </button>
+        <button id="underline" class="material-symbols-outlined">
+          format_underlined
+        </button>
+        <button id="strikethrough" class="material-symbols-outlined">
+          format_strikethrough
+        </button>
+        <button id="createLink" class="material-symbols-outlined">
+          add_link
+        </button>
+        <button id="insertUnorderedList" class="material-symbols-outlined">
+          format_list_bulleted
+        </button>
+        <button id="insertOrderedList" class="material-symbols-outlined">
+          format_list_numbered
+        </button>
+        <button id="justifyLeft" class="material-symbols-outlined">
+          format_align_left
+        </button>
+        <button id="justifyRight" class="material-symbols-outlined">
+          format_align_right
+        </button>
+        <button id="justifyCenter" class="material-symbols-outlined">
+          format_align_center
+        </button>
+        <button id="justifyFull" class="material-symbols-outlined">
+          format_align_justify
+        </button>
+      </div>
+      <div class="text-box" contenteditable="true"></div>
+    </div>
+  </body>
+</html>

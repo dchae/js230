@@ -1,0 +1,35 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body > header {
+  color: white;
+  background-color: orange;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 15px;
+  align-items: end;
+  margin: 20px;
+}
+
+.car-grid img {
+  width: 100%;
+}
+
+.car-grid h2 {
+  font-size: 1em;
+  margin: 2px;
+}
+
+ul.details {
+  list-style: none;
+  margin: 5px;
+  padding: 0;
+}

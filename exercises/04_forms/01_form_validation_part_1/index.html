@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Form Validation</title>
+    <meta charset="utf-8" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <script src="app.js"></script>
+  </head>
+
+  <body>
+    <h1>Sign Up Form</h1>
+    <form id="signup-form" action="#" method="post" novalidate>
+      <p id="message-box"></p>
+      <fieldset>
+        <div class="form-field">
+          <label for="first-name">First Name</label>
+          <div class="input-group">
+            <input type="text" id="first-name" name="first-name" required />
+            <span class="validation-hint"></span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="last-name">Last Name</label>
+          <div class="input-group">
+            <input type="text" id="last-name" name="last-name" required />
+            <span class="validation-hint"></span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email</label>
+          <div class="input-group">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="janedoe@example.com"
+              required
+              pattern=".+@.+"
+            />
+            <span class="validation-hint"></span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="password">Password</label>
+          <div class="input-group">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              minlength="10"
+            />
+            <span class="validation-hint"></span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Phone Number</label>
+          <div class="input-group">
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="012-345-6789"
+              pattern="^\d{3}-?\d{3}-?\d{4}$"
+            />
+            <span class="validation-hint"></span>
+          </div>
+        </div>
+
+        <button type="submit">Sign Up</button>
+      </fieldset>
+    </form>
+  </body>
+</html>

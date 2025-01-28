@@ -1,0 +1,26 @@
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  align-items: center;
+}
+
+img {
+  width: 100%;
+}
+
+figcaption {
+  position: absolute;
+  width: 250px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px gray;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 500ms 0ms;
+}
+
+figure:hover > figcaption {
+  opacity: 1;
+  transition-delay: 2s;
+}

@@ -1,0 +1,68 @@
+html {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+  margin: 0;
+  background-color: powderblue;
+}
+
+h1 {
+  margin: 0 0 10px 0;
+}
+
+.editor {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 0;
+  min-width: 300px;
+}
+
+.controls {
+  background-color: rgb(200, 200, 200);
+  margin: 0;
+  padding: 5px;
+}
+
+button {
+  border-radius: 5px;
+  background: none;
+  border: none;
+}
+
+button.active {
+  color: white;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+button:hover {
+  color: black;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.text-box {
+  flex: 1;
+  background-color: white;
+}
+
+.text-box:focus,
+.text-box:focus-visible {
+  outline: none;
+}
